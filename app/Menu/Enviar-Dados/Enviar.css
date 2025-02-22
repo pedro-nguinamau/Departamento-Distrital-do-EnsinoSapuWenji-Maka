@@ -1,0 +1,36 @@
+.tm {
+    display: flex;
+}
+.mf {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.mf input {
+    width: 60px;
+    height: 10px;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid  rgb(76, 141, 209);
+
+}
+.mf  label {
+    margin-left: 6px ;
+    font-size: 14px;
+    font-weight: 500;
+    
+}
+.content-mf h3 {
+    font-size: 14px;
+    color: rgb(76, 141, 209);
+    font-weight: bold;
+
+}
+h3 {
+    font-size: 14px;
+    color: rgb(76, 141, 209);
+    font-weight: 500;
+}
+
