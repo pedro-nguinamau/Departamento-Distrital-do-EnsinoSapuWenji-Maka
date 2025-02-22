@@ -32,7 +32,7 @@ export default function Menu() {
             {/* <h1>{token}</h1> */}
       
            
-                 <h2>Olá, {nome} espero que a sua saúde esteja boa conforme as nossas orações</h2>
+                 <h2>Olá, {nome}! Espero que esteja bem na graça do nosso Senhor Jesus Cristo!</h2>
               <div className="blocos">
                 <div className="bloco" onClick={a} >
                   <p>Enviar Dados do Ensino</p>
