@@ -21,7 +21,7 @@ export default function Menu() {
   }
 
   const ver = () => {
-    if (comunidade === "Wenji-Maka") {
+    if (comunidade === "Wenji Maka") {
       window.open('https://docs.google.com/spreadsheets/d/e/2PACX-1vRcFCOyyVElqwx-wr4MYB0nbtZyRjPvad_j9gXyYDgfLlIfJm_MbTw36LaTOTezm6_51YYzueAtVQ9N/pubhtml?gid=1400028576&single=true')
     } else if(comunidade === "Estrela D'Alva ") {
       window.open('https://docs.google.com/spreadsheets/d/e/2PACX-1vRcFCOyyVElqwx-wr4MYB0nbtZyRjPvad_j9gXyYDgfLlIfJm_MbTw36LaTOTezm6_51YYzueAtVQ9N/pubhtml?gid=905349875&single=true')
