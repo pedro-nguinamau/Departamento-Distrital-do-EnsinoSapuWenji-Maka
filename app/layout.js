@@ -1,5 +1,5 @@
 import "./globals.css";
-
+import AuthWrapper from "./AuthWrapper";
 
 export const metadata = {
   title: "Departamento do ensino",
@@ -15,9 +15,10 @@ export default function RootLayout({ children }) {
     <html lang="pt">
       <body>
         <div id="root">
-        {children}
-        </div>
-       
+        <AuthWrapper>
+            {children}
+          </AuthWrapper>
+        </div> 
       </body>
     </html>
   );

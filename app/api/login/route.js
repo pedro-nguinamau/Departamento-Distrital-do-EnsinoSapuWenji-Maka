@@ -26,18 +26,18 @@ export async function POST(req) {
 
         const res = await sheets.spreadsheets.values.get({
             spreadsheetId: process.env.SHEET_ID,
-            range: "Professores!A2:F110"
+            range: "Professores!A:E"
         });
 
         const rows = res.data.values || [];
 
-        const Professor = rows.find((row) => row[2] === palavraPasse && row[4] === comunidade);
+        const Professor = rows.find((row) => row[1] === palavraPasse && row[3] === comunidade);
 
         if (!Professor) {
             return NextResponse.json({ erro: "Credenciais inválidas!" }, { status: 401 });
         }
 
-        return NextResponse.json({ mensagem: "Login bem-sucedido!", nome: Professor[1], comunidade: Professor[4], role: Professor[5] }, {status: 200});
+        return NextResponse.json({ mensagem: "Login bem-sucedido!", nome: Professor[0], comunidade: Professor[3], role: Professor[4] }, {status: 200});
 
     } catch (error) {
         console.error(error);

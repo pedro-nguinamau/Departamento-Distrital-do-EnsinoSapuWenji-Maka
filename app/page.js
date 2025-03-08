@@ -15,13 +15,11 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-  
 
-    console.log("Palavra-Passe:", palavraPasse);
-  console.log("Comunidade selecionada:", comunidade);
 
   if (!palavraPasse.trim() || !comunidade.trim()) {
     setMensagem("Preencha todos os campos!");
+    setIsLoading(false)
     return;
   }
 
@@ -40,6 +38,8 @@ export default function Home() {
         router.replace("/Menu")
       }
     } catch (error) {
+      setPalavraPasse("")
+      setComunidade("")
       setIsLoading(false)
       if (error.response) {
         setMensagem(error.response.data.erro || "Erro ao fazer login.");

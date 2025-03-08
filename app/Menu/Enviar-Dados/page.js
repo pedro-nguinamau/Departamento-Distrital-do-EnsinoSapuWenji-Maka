@@ -51,11 +51,12 @@ export default function EnviarDados() {
       });
 
       if (res.status === 200) {
-        setMensagem("Dados enviados com sucesso!");
-        isLoading(false)
-        router.push("/Menu")
+        // setMensagem("Dados enviados com sucesso!");
+        // isLoading(false)
+        router.replace("/Menu")
       } else {
         setMensagem("Erro ao enviar os dados.");
+        isLoading(false)
       }
     } catch (error) {
       setIsLoading(false)
@@ -174,7 +175,7 @@ export default function EnviarDados() {
           {isLoading ? "Enviando..." : "Enviar"}
         </button>
 
-        {mensagem && <p>{mensagem}</p>}
+        {mensagem && <p className='e'>{mensagem}</p>}
       </form>
     </>
   );

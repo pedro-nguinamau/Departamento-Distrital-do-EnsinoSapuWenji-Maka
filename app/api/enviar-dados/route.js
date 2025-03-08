@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 
 export async function POST(req) {
-  
+
     try {
         const {
             comunidade,
@@ -19,16 +19,22 @@ export async function POST(req) {
             oferenda,
             totalAlunos,
             Data // Adiciona o total ao envio
-          } = await req.json()
+          } = await req.json();
+
           if (!temaEscolaDominical || !professorEscolaDominical || !temaReligioso || !professorReligioso || !meninosEscolaDominical || !meninasEscolaDominical || !meninosEnsinoReligioso || !meninasEnsinoReligioso || !oferenda || !totalAlunos || !Data) {
             return NextResponse.json({ erro: 'Preencha os campos' }, { status: 400 });
-          }
+          };
 
 
 
-        const auth = new google.auth.GoogleAuth({
-            scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+          const auth = new google.auth.GoogleAuth({
+            credentials: {
+                client_email: process.env.GOOGLE_CLIENT_EMAIL,
+                private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"), 
+            },
+         scopes: ["https://www.googleapis.com/auth/spreadsheets"],
         });
+
 
         const sheets = google.sheets({ version: "v4", auth });
 
@@ -54,9 +60,7 @@ export async function POST(req) {
             },
           });
         
-          return NextResponse.json({message: 'Dados Adicionados'}, {status: 200})
-
-
+          return NextResponse.json({message: 'Dados Adicionados'}, {status: 201});
 
     } catch(error) {
         return NextResponse.json({ erro: "Erro ao adicionar os dados!" }, { status: 500 });

@@ -14,12 +14,28 @@
     padding: 2px 2px;
     cursor: pointer;
     text-align: center;
+    background-color: rgb(76, 141, 209);
+    font-weight: 600;
+    color: #fff;
 }
 .float {
     display: flex;
     flex-direction: column;
     place-items: center;
     gap: 15px;
+}
+.blocoss{
+       width: 300px;
+    place-items: center;
+    gap: 15px;
+    /* border: 1px solid #333; */
+    box-shadow: 1px 1px 4px #7e7e7e;
+    padding: 2px 2px;
+    cursor: pointer;
+    text-align: center;
+    background-color: rgb(218, 74, 74);
+    font-weight: 600;
+    color: #fff;
 }
 /* 
 #li {
