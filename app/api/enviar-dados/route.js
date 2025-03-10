@@ -60,7 +60,7 @@ export async function POST(req) {
             },
           });
         
-          return NextResponse.json({message: 'Dados Adicionados'}, {status: 201});
+          return NextResponse.json({message: 'Dados Adicionados'}, {status: 200});
 
     } catch(error) {
         return NextResponse.json({ erro: "Erro ao adicionar os dados!" }, { status: 500 });

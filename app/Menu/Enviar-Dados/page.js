@@ -20,6 +20,7 @@ export default function EnviarDados() {
   const [oferenda, setOferenda] = useState("");
   const [mensagem, setMensagem] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [envioSucesso, setEnvioSucesso] = useState(false); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,21 +52,32 @@ export default function EnviarDados() {
       });
 
       if (res.status === 200) {
-        // setMensagem("Dados enviados com sucesso!");
-        // isLoading(false)
-        router.replace("/Menu")
+        // Envio bem-sucedido
+        setEnvioSucesso(true);
+        setMensagem('Dados enviados com sucesso!');
+      
       } else {
-        setMensagem("Erro ao enviar os dados.");
-        isLoading(false)
+        // Envio falhou
+        setEnvioSucesso(false);
+        setMensagem('Erro ao enviar os dados.');
       }
+
+ 
     } catch (error) {
-      setIsLoading(false)
-      if (error.response) {
-        setMensagem(error.response.data.erro || "Erro ao fazer login.");
-        
-      }
-    }
+
+            setEnvioSucesso(false);
+            setMensagem(error.response?.data.erro || 'Erro ao enviar os dados.');
+          } finally {
+            setIsLoading(false); // Desativa o estado de carregamento, independentemente do resultado
+          }
+    
   };
+
+  const tentarNovamente = () => {
+    setMensagem(''); // Limpa a mensagem de erro
+    setEnvioSucesso(false); // Reseta o estado de sucesso
+  };
+
 
   return (
     <>
@@ -175,8 +187,30 @@ export default function EnviarDados() {
           {isLoading ? "Enviando..." : "Enviar"}
         </button>
 
-        {mensagem && <p className='e'>{mensagem}</p>}
+      
       </form>
+  
+
+
+      {/* Overlay e mensagem */}
+      {mensagem && (
+        <div className="overlay">
+          <div className="message">
+    
+            <p className={envioSucesso ? '' : 'e'}>{mensagem}</p>
+
+            {/* Botões condicionais */}
+            {envioSucesso ? (
+              <button onClick={() => router.replace('/Menu')}>Ir para o Menu</button>
+            ) : (
+              <button onClick={tentarNovamente}>Tentar Novamente</button>
+            )}
+          </div>
+        </div>
+      )}
+  
+
+
     </>
   );
 }

@@ -33,8 +33,7 @@ export default function Home() {
         const { nome, comunidade, role} = await res.data
         localStorage.setItem("nome", nome);
         localStorage.setItem("comunidade", comunidade);
-        localStorage.setItem("role", role)
-       
+        localStorage.setItem("role", role) 
         router.replace("/Menu")
       }
     } catch (error) {
