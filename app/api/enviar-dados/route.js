@@ -17,14 +17,21 @@ export async function POST(req) {
             meninosEnsinoReligioso,
             meninasEnsinoReligioso,
             oferenda,
-            totalAlunos,
+            // totalAlunos,
             Data // Adiciona o total ao envio
           } = await req.json();
 
-          if (!temaEscolaDominical || !professorEscolaDominical || !temaReligioso || !professorReligioso || !meninosEscolaDominical || !meninasEscolaDominical || !meninosEnsinoReligioso || !meninasEnsinoReligioso || !oferenda || !totalAlunos || !Data) {
+          if (!temaEscolaDominical || !professorEscolaDominical || !temaReligioso || !professorReligioso || !meninosEscolaDominical || !meninasEscolaDominical || !meninosEnsinoReligioso || !meninasEnsinoReligioso || !oferenda || !Data) {
             return NextResponse.json({ erro: 'Preencha os campos' }, { status: 400 });
           };
 
+          const nmed = parseInt(meninosEnsinoReligioso, 10)
+          const nmaed = parseInt(meninasEscolaDominical, 10)
+          const nmer = parseInt(meninosEnsinoReligioso, 10)
+          const nmaer = parseInt(meninasEnsinoReligioso, 10)
+          const ofe = parseInt(oferenda)
+
+          const totm = nmer + nmaer + nmed +nmaed
 
 
           const auth = new google.auth.GoogleAuth({
@@ -49,12 +56,12 @@ export async function POST(req) {
                 professorEscolaDominical,
                 temaReligioso,
                 professorReligioso,
-                meninosEscolaDominical,
-                meninasEscolaDominical,
-                meninosEnsinoReligioso,
-                meninasEnsinoReligioso,
-                totalAlunos,
-                oferenda,
+                nmed,
+                nmaed,
+                nmer,
+                nmaer,
+                totm,
+                ofe,
                 Data
             ]],
             },

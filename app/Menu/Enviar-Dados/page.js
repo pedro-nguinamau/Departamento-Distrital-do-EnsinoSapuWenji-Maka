@@ -27,11 +27,11 @@ export default function EnviarDados() {
     setIsLoading(true);
 
     // Calcula o total de alunos automaticamente
-    const totalAlunos =
-      Number(meninosEscolaDominical) +
-      Number(meninasEscolaDominical) +
-      Number(meninosEnsinoReligioso) +
-      Number(meninasEnsinoReligioso);
+    // const totalAlunos =
+    //   Number(meninosEscolaDominical) +
+    //   Number(meninasEscolaDominical) +
+    //   Number(meninosEnsinoReligioso) +
+    //   Number(meninasEnsinoReligioso);
 
       const comunidade = localStorage.getItem("comunidade"); 
 
@@ -47,7 +47,7 @@ export default function EnviarDados() {
         meninosEnsinoReligioso,
         meninasEnsinoReligioso,
         oferenda,
-        totalAlunos,
+        // totalAlunos,
         Data // Adiciona o total ao envio
       });
 
@@ -118,7 +118,7 @@ export default function EnviarDados() {
             <div className="mf">
               <label htmlFor="MeninosEscolaDominical">M</label>
               <input
-                type="number"
+               type="text"
                 placeholder="Meninos"
                 name="MeninosEscolaDominical"
                 value={meninosEscolaDominical}
@@ -128,7 +128,7 @@ export default function EnviarDados() {
             <div className="mf">
               <label htmlFor="MeninasEscolaDominical">F</label>
               <input
-                type="number"
+               type="text"
                 placeholder="Meninas"
                 name="MeninasEscolaDominical"
                 value={meninasEscolaDominical}
@@ -144,7 +144,7 @@ export default function EnviarDados() {
             <div className="mf">
               <label htmlFor="MeninosEnsinoReligioso">M</label>
               <input
-                type="number"
+               type="text"
                 placeholder="Meninos"
                 name="MeninosEnsinoReligioso"
                 value={meninosEnsinoReligioso}
@@ -154,7 +154,7 @@ export default function EnviarDados() {
             <div className="mf">
               <label htmlFor="MeninasEnsinoReligioso">F</label>
               <input
-                type="number"
+               type="text"
                 placeholder="Meninas"
                 name="MeninasEnsinoReligioso"
                 value={meninasEnsinoReligioso}
@@ -166,7 +166,7 @@ export default function EnviarDados() {
 
         <label htmlFor="Oferenda">Oferenda</label>
         <input
-          type="number"
+         type="text"
           placeholder="Oferenda"
           name='oferenda'
           value={oferenda}
