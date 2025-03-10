@@ -40,7 +40,7 @@ export async function POST(req) {
 
         await sheets.spreadsheets.values.append({
             spreadsheetId: process.env.SHEET_ID_WENJI_MAKA, // ID da tua planilha
-            range: `${comunidade}!B:L`, 
+            range: `${comunidade}!A:K`, 
             valueInputOption: "RAW",
             requestBody: {
               values: [[

@@ -61,10 +61,8 @@ export default function EnviarDados() {
         setEnvioSucesso(false);
         setMensagem('Erro ao enviar os dados.');
       }
-
  
     } catch (error) {
-
             setEnvioSucesso(false);
             setMensagem(error.response?.data.erro || 'Erro ao enviar os dados.');
           } finally {
@@ -199,7 +197,6 @@ export default function EnviarDados() {
     
             <p className={envioSucesso ? '' : 'e'}>{mensagem}</p>
 
-            {/* Botões condicionais */}
             {envioSucesso ? (
               <button onClick={() => router.replace('/Menu')}>Ir para o Menu</button>
             ) : (
