@@ -25,11 +25,11 @@ export async function POST(req) {
             return NextResponse.json({ erro: 'Preencha os campos' }, { status: 400 });
           };
 
-          const nmed = parseInt(meninosEnsinoReligioso, 10)
+          const nmed = parseInt(meninosEscolaDominical, 10)
           const nmaed = parseInt(meninasEscolaDominical, 10)
           const nmer = parseInt(meninosEnsinoReligioso, 10)
           const nmaer = parseInt(meninasEnsinoReligioso, 10)
-          const ofe = parseInt(oferenda)
+          const ofe = parseInt(oferenda, 10)
 
           const totm = nmer + nmaer + nmed +nmaed
 
@@ -68,6 +68,8 @@ export async function POST(req) {
           });
         
           return NextResponse.json({message: 'Dados Adicionados'}, {status: 200});
+   
+        
 
     } catch(error) {
         return NextResponse.json({ erro: "Erro ao adicionar os dados!" }, { status: 500 });
